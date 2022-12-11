@@ -1,0 +1,37 @@
+• expression
+• ⇒ term
+• ⇒ factor * factor
+• ⇒ ( expression ) * factor
+• ⇒ ( term + term ) * factor
+• ⇒ ( factor + term ) * factor
+• ⇒ ( 1 + term ) * factor
+• ⇒ ( 1 + factor ) * factor
+• ⇒ ( 1 + 2 ) * factor
+• ⇒ ( 1 + 2 ) * 3
+➡ 構文解析はこの過程をシミュレートするだけ!
+
+1+2*3-4
+e -> t+t-t
+  -> f+t-t
+  -> 1+t-t
+  -> 1+f*f-t
+  -> 1+2*f-t
+  -> 1+2*3-t
+  -> 1+2*3-f
+  -> 1+2*3-4
+[:add, 1, [:sub, [:mul, 2, 3], 4]]
+
+
+9*(8+7/6)+5
+e -> t+t
+  -> f*(e)+t　　変更　　-> f*f+t
+            　　変更　　-> 9*f+t
+  -> 9*(e)+t
+  -> 9*(t+t)+t
+  -> 9*(f+t)+t
+  -> 9*(8+t)+t
+  -> 9*(8+f/f)+t
+  -> 9*(8+7/f)+t
+  -> 9*(8+7/6)+t
+  -> 9*(8+7/6)+f
+  -> 9*(8+7/6)+5
