@@ -133,3 +133,31 @@ class Calc
 end
 
 Calc.new
+
+
+#######################################
+(base) ~/Documents/Third/Third_the_September_semester/Tue1_textprocessing/calc (main ✘)✹✭ ᐅ  ruby calc.rb "1+2*3-4"                     
+[:mul, 2, 3]
+[:add, 1, [:mul, 2, 3]]
+[:sub, [:add, 1, [:mul, 2, 3]], 4]
+3
+
+(base) ~/Documents/Third/Third_the_September_semester/Tue1_textprocessing/calc (main ✘)✹✭ ᐅ ruby calc.rb "(1+2)*3-4"  
+[:add, 1, 2]
+[:mul, [:add, 1, 2], 3]
+[:sub, [:mul, [:add, 1, 2], 3], 4]
+5
+
+(base) ~/Documents/Third/Third_the_September_semester/Tue1_textprocessing/calc (main ✘)✹✭ ᐅ ruby calc.rb "10*2+3-4/5"
+[:mul, 10, 2]
+[:add, [:mul, 10, 2], 3]
+[:div, 4, 5]
+[:sub, [:add, [:mul, 10, 2], 3], [:div, 4, 5]]
+23
+
+(base) ~/Documents/Third/Third_the_September_semester/Tue1_textprocessing/calc (main ✘)✹✭ ᐅ ruby calc.rb "(5+2)*10/5-6" 
+[:add, 5, 2]
+[:mul, [:add, 5, 2], 10]
+[:div, [:mul, [:add, 5, 2], 10], 5]
+[:sub, [:div, [:mul, [:add, 5, 2], 10], 5], 6]
+8
